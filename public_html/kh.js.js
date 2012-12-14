@@ -1,0 +1,1 @@
+function startGeoLocation(){function a(c){jQuery.mobile.changePage(c,{transition:"slide"});}var b=navigator.geolocation;if(!b){a("/station/near?error=1");return;}b.getCurrentPosition(function(c){a("/station/near?lat="+c.coords.latitude+"&long="+c.coords.longitude);},function(){a("/station/near?error=2");});}
