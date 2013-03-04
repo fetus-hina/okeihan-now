@@ -1,0 +1,3 @@
+[submodule "__submodules/yii"]
+	path = __submodules/yii
+	url = git://github.com/yiisoft/yii.git
