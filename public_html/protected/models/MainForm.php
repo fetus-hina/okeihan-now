@@ -5,9 +5,9 @@ class MainForm extends CFormModel {
     public function rules() {
         return array(
             array('carNumber, type, terminal, formDetail', 'required'),
-            array('carNumber',      'exist', 'allowEmpty' => false, 'attributeName' => 'number', 'className' => 'Car'),
-            array('type',           'exist', 'allowEmpty' => false, 'attributeName' => 'id', 'className' => 'Type'),
-            array('terminal',       'exist', 'allowEmpty' => false, 'attributeName' => 'id', 'className' => 'Station'),
+            array('carNumber',      'exist', 'attributeName' => 'number', 'className' => 'Car'),
+            array('type',           'exist', 'attributeName' => 'id', 'className' => 'Type'),
+            array('terminal',       'exist', 'attributeName' => 'id', 'className' => 'Station'),
             array('formDetail',     'boolean'),
         );
     }
