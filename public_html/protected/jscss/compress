@@ -99,27 +99,34 @@ function exec_file_real($rel_path, $in_file, $out_file1, $out_file2, $filetype, 
         }
     }
 
-    $cmdline =
-        sprintf(
-                '/usr/bin/env %s -jar %s --type %s --charset %s -v -o %s %s',
-                escapeshellarg('java'),
-                escapeshellarg(JAR_PATH),
-                escapeshellarg($filetype),
-                escapeshellarg('UTF-8'),
-                escapeshellarg($out_file1),
-                escapeshellarg($in_file));
+    $cmdline = sprintf(
+        '/usr/bin/env %s -jar %s --type %s --charset %s -v -o %s %s',
+        escapeshellarg('java'),
+        escapeshellarg(JAR_PATH),
+        escapeshellarg($filetype),
+        escapeshellarg('UTF-8'),
+        escapeshellarg($out_file1),
+        escapeshellarg($in_file)
+    );
     exec($cmdline, $lines, $status);
     if($status != 0) {
         echo "Cannot compress file\n";
         return false;
     }
 
-    if(!$fh = gzopen($out_file2, 'wb9')) {
-        echo "Cannot open gz file\n";
+    //FIXME
+    $cmdline = sprintf(
+        '/usr/bin/env %s -i%d -c --gzip %s > %s',
+        escapeshellarg(dirname(__FILE__) . '/../vendors/Zopfli/zopfli.x64'),
+        100,
+        escapeshellarg($out_file1),
+        escapeshellarg($out_file2)
+    );
+    exec($cmdline, $lines, $status);
+    if($status != 0) {
+        echo "Cannot gzip file\n";
         return false;
     }
-    gzwrite($fh, file_get_contents($out_file1));
-    gzclose($fh);
 
     touch($out_file1, filemtime($in_file));
     touch($out_file2, filemtime($in_file));
