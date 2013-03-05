@@ -40,12 +40,7 @@ class TrainController extends Controller {
         $now = time();
 
         if($input['day'] !== 'weekday' && $input['day'] !== 'holiday') {
-            //TODO: 祝日考慮
-            $business_day_t = mktime(date('H', $now) - 4, date('i', $now), date('s', $now), date('n', $now), date('j', $now), date('Y', $now));
-            switch(date('w', $business_day_t)) {
-            case 0: case 6: $input['day'] = 'holiday'; break;
-            default:        $input['day'] = 'weekday'; break;
-            }
+            $input['day'] = Holiday::isHolidayDiaDay($now) ? 'holiday' : 'weekday';
             $this->redirect($this->createUrl('train/station', $input));
             return;
         }
@@ -121,12 +116,7 @@ class TrainController extends Controller {
         }
         $now = time();
         if($input['day'] !== 'weekday' && $input['day'] !== 'holiday') {
-            //TODO: 祝日考慮
-            $business_day_t = mktime(date('H', $now) - 4, date('i', $now), date('s', $now), date('n', $now), date('j', $now), date('Y', $now));
-            switch(date('w', $business_day_t)) {
-            case 0: case 6: $input['day'] = 'holiday'; break;
-            default:        $input['day'] = 'weekday'; break;
-            }
+            $input['day'] = Holiday::isHolidayDiaDay($now) ? 'holiday' : 'weekday';
             $this->redirect($this->createUrl('train/stationDia', $input));
             return;
         }
