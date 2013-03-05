@@ -93,7 +93,7 @@ class Time extends CActiveRecord
     public function timeBetween($from_string, $to_string) {
         $self = $this->getTableAlias(false, false);
         $this->getDbCriteria()->mergeWith(array(
-            'condition' => "{$self}.departure_at BETWEEN :dept_from AND :dept_to",
+            'condition' => "time2datetime({$self}.departure_at) BETWEEN :dept_from AND :dept_to",
             'params' => array(':dept_from' => $from_string, ':dept_to' => $to_string),
         ));
         return $this;
