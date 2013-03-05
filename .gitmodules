@@ -1,0 +1,6 @@
+[submodule "__submodules/yii"]
+	path = __submodules/yii
+	url = git://github.com/yiisoft/yii.git
+[submodule "__submodules/smarty-renderer"]
+	path = __submodules/smarty-renderer
+	url = git://github.com/yiiext/smarty-renderer.git
