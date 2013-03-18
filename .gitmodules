@@ -4,3 +4,6 @@
 [submodule "__submodules/smarty-renderer"]
 	path = __submodules/smarty-renderer
 	url = git://github.com/yiiext/smarty-renderer.git
+[submodule "__submodules/UglifyJS"]
+	path = __submodules/UglifyJS
+	url = git://github.com/mishoo/UglifyJS.git
