@@ -226,12 +226,20 @@ class TrainController extends Controller {
 
         $parts = array();
 
-        if($input['train_number'] &&
-           ($dia = Dia::model()->findByAttributes(array('number' => $input['train_number']))))
-        {
-            // 京阪は種別と行き先が列車番号から自明になる仕組みなので
-            // 平日・休日ダイヤを考慮せずに検索してもその二つに限れば正しく取得できるはず
+        if(!$dia && $input['train_number']) {
+            $attributes = array(
+                'number' => $input['train_number'],
+                (Holiday::isHolidayDiaDay(time()) ? 'holiday' : 'weekday') => 't',
+            );
+            $dia = Dia::model()->findByAttributes(
+                array(
+                    'number' => $input['train_number'],
+                    (Holiday::isHolidayDiaDay(time()) ? 'holiday' : 'weekday') => 't',
+                )
+            );
+        }
 
+        if($dia) {
             // 種別
             $parts[] = $dia->type->name_disp;
 
@@ -287,7 +295,11 @@ class TrainController extends Controller {
         $parts[] = '#おけいはんなう';
 
         $text = implode(' ', $parts);
-        $myurl = $this->createAbsoluteUrl('train/index', array(), 'http');
+       
+        $myurl =
+            $dia
+                ? $this->createAbsoluteUrl('train/trainDia', array('id' => $dia->id), 'http')
+                : $this->createAbsoluteUrl('train/index', array(), 'http');
         $url = 'https://twitter.com/intent/tweet?' . http_build_query(array('text' => $text, 'url' => $myurl), '', '&');
         $this->redirect($url);
     }
