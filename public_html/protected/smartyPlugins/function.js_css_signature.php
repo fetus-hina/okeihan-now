@@ -3,6 +3,6 @@
 function smarty_function_js_css_signature(array $params, &$smarty) {
     switch($params["file"]) {
     case '/kh.css': return 'umlrqW6S2brd';
-    case '/kh.js': return 'EAW8-P9NQu0e';
+    case '/kh.js': return '6iFQJK7Y5nUK';
     }
 }
