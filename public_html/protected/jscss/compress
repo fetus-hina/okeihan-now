@@ -99,15 +99,25 @@ function exec_file_real($rel_path, $in_file, $out_file1, $out_file2, $filetype, 
         }
     }
 
-    $cmdline = sprintf(
-        '/usr/bin/env %s -jar %s --type %s --charset %s -v -o %s %s',
-        escapeshellarg('java'),
-        escapeshellarg(JAR_PATH),
-        escapeshellarg($filetype),
-        escapeshellarg('UTF-8'),
-        escapeshellarg($out_file1),
-        escapeshellarg($in_file)
-    );
+    if($filetype === 'js') {
+        $cmdline = sprintf(
+            '/usr/bin/env %s %s %s > %s',
+            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/node.x64'),
+            escapeshellarg(dirname(__FILE__) . '/../vendors/UglifyJS/bin/uglifyjs'),
+            escapeshellarg($in_file),
+            escapeshellarg($out_file1)
+        );
+    } else {
+        $cmdline = sprintf(
+            '/usr/bin/env %s -jar %s --type %s --charset %s -v -o %s %s',
+            escapeshellarg('java'),
+            escapeshellarg(JAR_PATH),
+            escapeshellarg($filetype),
+            escapeshellarg('UTF-8'),
+            escapeshellarg($out_file1),
+            escapeshellarg($in_file)
+        );
+    }
     exec($cmdline, $lines, $status);
     if($status != 0) {
         echo "Cannot compress file\n";
