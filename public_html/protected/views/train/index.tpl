@@ -5,7 +5,6 @@
             <a href="{{create_url route="train/stations"}}" data-icon="search" class="ui-btn-right" data-transition="slide">ダイヤ選択</a>
         </div>
         <div data-role="content">
-            <p>2013-03-16 のダイヤ改正データにはまだ対応していません</p>
             {{if $errors}}
                 <ul class="error">
                     {{foreach from=$errors item=_texts}}
