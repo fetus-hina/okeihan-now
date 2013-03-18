@@ -9,12 +9,13 @@ class TrainController extends Controller {
             'terminal'      => null,
             'form_detail'   => null,
         );
+        $dia = null;
         if($input['dia'] && ($dia = Dia::model()->findByPk($input['dia']))) {
             $input['train_number']  = $dia->number;
             $input['type']          = $dia->type->id;
             $input['terminal']      = $dia->terminal->id;
         }
-        return $this->displayMain($input, array());
+        return $this->displayMain($input, array(), !!$dia);
 	}
 
     public function actionStations() {
@@ -205,7 +206,14 @@ class TrainController extends Controller {
             'type'          => isset($_GET['type'])         ? $_GET['type']         : null,
             'terminal'      => isset($_GET['terminal'])     ? $_GET['terminal']     : null,
             'form_detail'   => isset($_GET['form_detail'])  ? $_GET['form_detail']  : null,
+            'dia'           => isset($_GET['dia'])          ? $_GET['dia']          : null,
         );
+        $dia = null;
+        if($input['dia'] && ($dia = Dia::model()->findByPk($input['dia']))) {
+            $input['train_number']  = $dia->number;
+            $input['type']          = $dia->type->id;
+            $input['terminal']      = $dia->terminal->id;
+        }
         $form = new MainForm();
         $form->carNumber    = $input['car_number'];
         $form->trainNumber  = $input['train_number'];
@@ -213,17 +221,25 @@ class TrainController extends Controller {
         $form->terminal     = $input['terminal'];
         $form->formDetail   = $input['form_detail'] == 'on';
         if(!$form->validate()) {
-            return $this->displayMain($input, $form->getErrors());
+            return $this->displayMain($input, $form->getErrors(), !!$dia);
         }
 
         $parts = array();
 
-        if($input['train_number'] &&
-           ($dia = Dia::model()->findByAttributes(array('number' => $input['train_number']))))
-        {
-            // 京阪は種別と行き先が列車番号から自明になる仕組みなので
-            // 平日・休日ダイヤを考慮せずに検索してもその二つに限れば正しく取得できるはず
+        if(!$dia && $input['train_number']) {
+            $attributes = array(
+                'number' => $input['train_number'],
+                (Holiday::isHolidayDiaDay(time()) ? 'holiday' : 'weekday') => 't',
+            );
+            $dia = Dia::model()->findByAttributes(
+                array(
+                    'number' => $input['train_number'],
+                    (Holiday::isHolidayDiaDay(time()) ? 'holiday' : 'weekday') => 't',
+                )
+            );
+        }
 
+        if($dia) {
             // 種別
             $parts[] = $dia->type->name_disp;
 
@@ -279,12 +295,16 @@ class TrainController extends Controller {
         $parts[] = '#おけいはんなう';
 
         $text = implode(' ', $parts);
-        $myurl = $this->createAbsoluteUrl('train/index', array(), 'http');
+       
+        $myurl =
+            $dia
+                ? $this->createAbsoluteUrl('train/trainDia', array('id' => $dia->id), 'http')
+                : $this->createAbsoluteUrl('train/index', array(), 'http');
         $url = 'https://twitter.com/intent/tweet?' . http_build_query(array('text' => $text, 'url' => $myurl), '', '&');
         $this->redirect($url);
     }
 
-    private function displayMain($input, $errors = array()) {
+    private function displayMain($input, $errors = array(), $dia_choose = false) {
         $terminals = array();
         foreach(Station::findAllTerminals() as $terminal) {
             if(!isset($terminals[$terminal['station_id']])) {
@@ -292,7 +312,7 @@ class TrainController extends Controller {
             }
         }
 		$this->render(
-            'index',
+            $dia_choose ? 'index2' : 'index',
             array(
                 'types' => Type::model()->findAll(),
                 'terminals' => $terminals,
