@@ -2,8 +2,8 @@
     <div data-role="page" id="main">
         <div data-role="header">
             <h1>おけいはんなう</h1>
-            <a href="{{create_url route="train/index"}}" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">トップ</a>
-            <a href="{{create_url route="train/stations"}}" data-icon="search" class="ui-btn-right" data-transition="slide">ダイヤ選択</a>
+            <a href="{{create_url route="train/index"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">トップ</a>
+            <a href="{{create_url route="train/stations"}}" data-icon="search" class="ui-btn-right">ダイヤ選択</a>
         </div>
         <div data-role="content">
             {{if $errors}}

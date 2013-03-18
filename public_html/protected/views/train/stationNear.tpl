@@ -2,13 +2,13 @@
     <div data-role="page">
         <div data-role="header">
             <h1>近くの駅</h1>
-            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left"  data-transition="slide" data-direction="reverse">駅選択</a>
+            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">駅選択</a>
         </div>
         <div data-role="content">
             <ul data-role="listview">
                 {{foreach from=$stations item=_station}}
                     <li>
-                        <a href="{{create_url route="train/station" id="`$_station->id`"}}" data-transition="slide">
+                        <a href="{{create_url route="train/station" id="`$_station->id`"}}">
                             {{$_station->name|escape}}
                             &#32;(
                             {{if $_station->distance <= 80}}
