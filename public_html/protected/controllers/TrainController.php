@@ -9,12 +9,13 @@ class TrainController extends Controller {
             'terminal'      => null,
             'form_detail'   => null,
         );
+        $dia = null;
         if($input['dia'] && ($dia = Dia::model()->findByPk($input['dia']))) {
             $input['train_number']  = $dia->number;
             $input['type']          = $dia->type->id;
             $input['terminal']      = $dia->terminal->id;
         }
-        return $this->displayMain($input, array());
+        return $this->displayMain($input, array(), !!$dia);
 	}
 
     public function actionStations() {
@@ -205,7 +206,14 @@ class TrainController extends Controller {
             'type'          => isset($_GET['type'])         ? $_GET['type']         : null,
             'terminal'      => isset($_GET['terminal'])     ? $_GET['terminal']     : null,
             'form_detail'   => isset($_GET['form_detail'])  ? $_GET['form_detail']  : null,
+            'dia'           => isset($_GET['dia'])          ? $_GET['dia']          : null,
         );
+        $dia = null;
+        if($input['dia'] && ($dia = Dia::model()->findByPk($input['dia']))) {
+            $input['train_number']  = $dia->number;
+            $input['type']          = $dia->type->id;
+            $input['terminal']      = $dia->terminal->id;
+        }
         $form = new MainForm();
         $form->carNumber    = $input['car_number'];
         $form->trainNumber  = $input['train_number'];
@@ -213,7 +221,7 @@ class TrainController extends Controller {
         $form->terminal     = $input['terminal'];
         $form->formDetail   = $input['form_detail'] == 'on';
         if(!$form->validate()) {
-            return $this->displayMain($input, $form->getErrors());
+            return $this->displayMain($input, $form->getErrors(), !!$dia);
         }
 
         $parts = array();
@@ -284,7 +292,7 @@ class TrainController extends Controller {
         $this->redirect($url);
     }
 
-    private function displayMain($input, $errors = array()) {
+    private function displayMain($input, $errors = array(), $dia_choose = false) {
         $terminals = array();
         foreach(Station::findAllTerminals() as $terminal) {
             if(!isset($terminals[$terminal['station_id']])) {
@@ -292,7 +300,7 @@ class TrainController extends Controller {
             }
         }
 		$this->render(
-            'index',
+            $dia_choose ? 'index2' : 'index',
             array(
                 'types' => Type::model()->findAll(),
                 'terminals' => $terminals,
