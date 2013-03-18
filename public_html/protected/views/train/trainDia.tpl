@@ -2,7 +2,7 @@
     <div data-role="page">
         <div data-role="header">
             <h1>{{$dia->number|escape}} 列車</h1>
-            <a href="javascript:history.back();" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">戻る</a>
+            <a href="javascript:history.back();" data-icon="back" class="ui-btn-left" data-direction="reverse">戻る</a>
             <a href="{{create_url route="train/index" dia="`$dia->id`"}}" data-icon="check" class="ui-btn-right">乗車する</a>
         </div>
         <div data-role="content">
@@ -56,7 +56,7 @@
                                 {{$_time->station->name|escape}}
                             </th>
                             <th class="timetable">
-                                <a href="{{create_url route="train/stationDia" id="`$_time->station->id`" day="`$_day`"}}" data-transition="slide" data-icon="grid" data-role="button" data-iconpos="notext" data-mini="true" data-inline="true">
+                                <a href="{{create_url route="train/stationDia" id="`$_time->station->id`" day="`$_day`"}}" data-icon="grid" data-role="button" data-iconpos="notext" data-mini="true" data-inline="true">
                                     駅時刻表
                                 </a>
                             </th>

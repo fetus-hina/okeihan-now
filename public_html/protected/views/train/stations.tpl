@@ -2,7 +2,7 @@
     <div data-role="page">
         <div data-role="header">
             <h1>駅選択</h1>
-            <a href="{{create_url route="train/index"}}" data-icon="back" class="ui-btn-left"  data-transition="slide" data-direction="reverse">トップ</a>
+            <a href="{{create_url route="train/index"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">トップ</a>
             <a href="javascript:startGeoLocation();" data-icon="gear" class="ui-btn-right">現在位置</a>
         </div>
         <div data-role="content">
@@ -16,7 +16,7 @@
                             <ul data-role="listview" data-inset="true">
                                 {{foreach from=$_line->stations item=_station}}
                                     <li>
-                                        <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}" data-transition="slide">
+                                        <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}">
                                             {{$_station->name|escape}}
                                         </a>
                                     </li>
@@ -27,7 +27,7 @@
                                 {{foreach from=$_line->stations item=_station}}
                                     {{if $_station->is_principal}}
                                         <li>
-                                            <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}" data-transition="slide">
+                                            <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}">
                                                 {{$_station->name|escape}}
                                             </a>
                                         </li>
@@ -38,7 +38,7 @@
                                 {{foreach from=$_line->stations item=_station}}
                                     {{if !$_station->is_principal}}
                                         <li>
-                                            <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}" data-transition="slide">
+                                            <a href="{{create_url route="train/station" id="`$_station->id`" line="`$_line->id`"}}">
                                                 {{$_station->name|escape}}
                                             </a>
                                         </li>

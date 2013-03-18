@@ -3,9 +3,9 @@
         <div data-role="header">
             <h1>{{$station->name|escape}}駅</h1>
             {{if $lines > 1}}
-                <a href="{{create_url route="train/stationDia" id="`$input.id`" day="`$input.day`"}}" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">路線選択</a>
+                <a href="{{create_url route="train/stationDia" id="`$input.id`" day="`$input.day`"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">路線選択</a>
             {{else}}
-                <a href="{{create_url route="train/stations" line="`$input.line`"}}" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">駅選択</a>
+                <a href="{{create_url route="train/stations" line="`$input.line`"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">駅選択</a>
             {{/if}}
         </div>
         <div data-role="content" class="station-dia">

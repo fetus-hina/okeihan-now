@@ -2,8 +2,8 @@
     <div data-role="page">
         <div data-role="header">
             <h1>{{$station->name|escape}}駅</h1>
-            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">駅選択</a>
-            <a href="{{create_url route="train/stationDia" id="`$station->id`" day="`$input.day`"}}" data-icon="grid" class="ui-btn-right" data-transition="slide">駅時刻表</a>
+            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">駅選択</a>
+            <a href="{{create_url route="train/stationDia" id="`$station->id`" day="`$input.day`"}}" data-icon="grid" class="ui-btn-right">駅時刻表</a>
         </div>
         <div data-role="content">
             <div data-role="controlgroup" data-type="horizontal">
@@ -35,7 +35,7 @@
                                             [{{$_time->dia->number|escape}}]
                                         </span>
                                     </a>
-                                    <a href="{{create_url route="train/trainDia" id="`$_time->dia->id`"}}" data-icon="info" data-theme="d" data-transition="slide">
+                                    <a href="{{create_url route="train/trainDia" id="`$_time->dia->id`"}}" data-icon="info" data-theme="d">
                                         ダイヤ
                                     </a>
                                 </li>
@@ -62,7 +62,7 @@
                                             [{{$_time->dia->number|escape}}]
                                         </span>
                                     </a>
-                                    <a href="{{create_url route="train/trainDia" id="`$_time->dia->id`"}}" data-icon="info" data-theme="d" data-transition="slide">
+                                    <a href="{{create_url route="train/trainDia" id="`$_time->dia->id`"}}" data-icon="info" data-theme="d">
                                         列車ダイヤ
                                     </a>
                                 </li>

@@ -2,7 +2,7 @@
     <div data-role="page">
         <div data-role="header">
             <h1>{{$station->name|escape}}駅</h1>
-            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left" data-transition="slide" data-direction="reverse">駅選択</a>
+            <a href="{{create_url route="train/stations"}}" data-icon="back" class="ui-btn-left" data-direction="reverse">駅選択</a>
         </div>
         <div data-role="content">
             <ul data-role="listview" data-inset="true">
