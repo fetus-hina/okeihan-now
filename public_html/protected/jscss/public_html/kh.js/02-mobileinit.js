@@ -3,11 +3,3 @@
 $(document).bind('mobileinit', function() {
     $.mobile.defaultPageTransition = 'none';  
 });
-
-$(document).delegate('a', 'vclick', function(e) {
-    e.preventDefault();
-    var link = $(this);
-    $.mobile.changePage(link.attr('href'), {
-        transition: link.jqmData('transition')
-    });
-});
