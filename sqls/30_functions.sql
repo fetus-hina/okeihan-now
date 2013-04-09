@@ -1,13 +1,10 @@
-CREATE FUNCTION "is_nobori" ( INTEGER, TEXT ) RETURNS BOOLEAN
+CREATE OR REPLACE FUNCTION "is_nobori" ( INTEGER, TEXT ) RETURNS BOOLEAN
 AS $$
     SELECT
         CASE
-            /* 鋼索線 */
             WHEN LENGTH($2) BETWEEN 3 AND 4 THEN
+                /* 鋼索線 */
                 (CAST($2 AS INTEGER) % 2 = 0) /* 物理的に上るものを上りとする */
-            /* おりひめ・ひこぼし は交野線内で上り下りと列車番号が逆になる */
-            WHEN $1 = 40 AND SUBSTR($2, 1, 1) IN ( 'C', 'D' ) THEN
-                NOT(is_nobori(20, $2)) /* 京阪本線での上り下りを取得して反転 */
             WHEN CAST(SUBSTR($2, 4, 2) AS INTEGER) % 2 = 0 THEN
                 TRUE /* 偶数なら上り */
             ELSE
@@ -15,12 +12,12 @@ AS $$
         END
 $$ LANGUAGE SQL IMMUTABLE STRICT;
 
-CREATE FUNCTION "is_kudari" ( INTEGER, TEXT ) RETURNS BOOLEAN
+CREATE OR REPLACE FUNCTION "is_kudari" ( INTEGER, TEXT ) RETURNS BOOLEAN
 AS $$
     SELECT NOT(is_nobori($1, $2))
 $$ LANGUAGE SQL IMMUTABLE STRICT;
 
-CREATE FUNCTION "time2datetime" ( TIME(0) ) RETURNS TIMESTAMP(0)
+CREATE OR REPLACE FUNCTION "time2datetime" ( TIME(0) ) RETURNS TIMESTAMP(0)
 AS $$
     SELECT
         CASE
@@ -33,7 +30,7 @@ AS $$
 $$ LANGUAGE SQL STABLE STRICT;
 
 CREATE LANGUAGE plpgsql;
-CREATE FUNCTION distance(POINT, POINT) RETURNS NUMERIC
+CREATE OR REPLACE FUNCTION distance(POINT, POINT) RETURNS NUMERIC
 AS $$
     declare
         v_lat1 numeric := $1[0];
