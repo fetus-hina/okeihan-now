@@ -1,6 +1,6 @@
 BEGIN;
-DELETE "card";
-DELETE "formations";
+DELETE FROM "cars";
+DELETE FROM "formations";
 
 INSERT INTO "formations" VALUES ( 1501, 1000, '1501F', NULL );
 INSERT INTO "cars" VALUES ( 1501, 1501, 1 );
