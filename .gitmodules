@@ -7,3 +7,9 @@
 [submodule "__submodules/UglifyJS"]
 	path = __submodules/UglifyJS
 	url = git://github.com/mishoo/UglifyJS.git
+[submodule "__submodules/clean-css"]
+	path = __submodules/clean-css
+	url = git://github.com/GoalSmashers/clean-css.git
+[submodule "__submodules/commander.js"]
+	path = __submodules/commander.js
+	url = git://github.com/visionmedia/commander.js.git

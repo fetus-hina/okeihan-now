@@ -1,7 +1,5 @@
 #!/usr/bin/env php
 <?php
-define('YUI_VERSION', '2.4.7');
-define('JAR_PATH', dirname(__FILE__) . '/../vendors/YuiCompressor/yuicompressor-' . YUI_VERSION . '.jar');
 define('IN_PATH',  dirname(__FILE__) . '/public_html');
 define('OUT_PATH', dirname(__FILE__) . '/../..');
 define('SMARTY_PLUGINS_DIRECTORY', dirname(__FILE__) . '/../smartyPlugins');
@@ -41,7 +39,7 @@ function exec_directory($rel_path, array &$hashes) {
 function exec_file($rel_path, $filetype, array &$hashes) {
     echo "<<< $rel_path >>>\n";
     $in_file = IN_PATH . $rel_path;
-    $out_file1 = OUT_PATH . $rel_path . '.' . pathinfo($rel_path, PATHINFO_EXTENSION); // hoge.css.css
+    $out_file1 = OUT_PATH . $rel_path;
     $out_file2 = OUT_PATH . $rel_path . '.gz'; // hoge.css.gz
 
     if(is_dir($in_file)) {
@@ -109,11 +107,10 @@ function exec_file_real($rel_path, $in_file, $out_file1, $out_file2, $filetype, 
         );
     } else {
         $cmdline = sprintf(
-            '/usr/bin/env %s -jar %s --type %s --charset %s -v -o %s %s',
-            escapeshellarg('java'),
-            escapeshellarg(JAR_PATH),
-            escapeshellarg($filetype),
-            escapeshellarg('UTF-8'),
+            '/usr/bin/env NODE_PATH=%s %s %s -e -o %s %s',
+            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/lib'),
+            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/node.x64'),
+            escapeshellarg(dirname(__FILE__) . '/../vendors/clean-css/bin/cleancss'),
             escapeshellarg($out_file1),
             escapeshellarg($in_file)
         );
