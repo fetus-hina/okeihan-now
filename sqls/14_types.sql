@@ -31,6 +31,7 @@ INSERT INTO "types" VALUES ( 880, '臨時特急',     '臨時特急',           
 INSERT INTO "types" VALUES ( 890, '臨時快速特急', '臨時快速特急',         '(臨)快速特急', TRUE );
 INSERT INTO "types" VALUES ( 891, '臨時K特急',    '臨時K特急',            '(臨)K特急',    TRUE );
 INSERT INTO "types" VALUES ( 895, '臨時快速特急', '臨時快速特急「洛楽」', '(臨)洛楽',     TRUE );
+INSERT INTO "types" VALUES ( 896, '臨時', '臨時「宇治・伏見 おうじちゃまEXPRESS」', '(臨)おうじちゃま', TRUE );
 
 INSERT INTO "types" VALUES ( 990, '団体',         '団体',                 '(臨)団体',     TRUE );
 INSERT INTO "types" VALUES ( 999, '回送',         '回送',                 '回送',         FALSE );
