@@ -5,3 +5,5 @@ UPDATE "formations" SET "nickname" = 'いなり、こんこん、恋いろは。
 UPDATE "formations" SET "nickname" = 'いなり、こんこん、恋いろは。(丹波橋) #いなこん' WHERE "id" = 5554;
 UPDATE "formations" SET "nickname" = 'いなり、こんこん、恋いろは。(いなり) #いなこん' WHERE "id" = 6004;
 UPDATE "formations" SET "nickname" = 'いなり、こんこん、恋いろは。(墨染) #いなこん' WHERE "id" = 7203;
+
+UPDATE "formations" SET "nickname" = '宇治・伏見ギャラリートレイン' WHERE "id" = 10005;
