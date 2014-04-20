@@ -298,8 +298,8 @@ class TrainController extends Controller {
        
         $myurl =
             $dia
-                ? $this->createAbsoluteUrl('train/trainDia', array('id' => $dia->id), 'http')
-                : $this->createAbsoluteUrl('train/index', array(), 'http');
+                ? $this->createAbsoluteUrl('train/trainDia', array('id' => $dia->id), 'https')
+                : $this->createAbsoluteUrl('train/index', array(), 'https');
         $url = 'https://twitter.com/intent/tweet?' . http_build_query(array('text' => $text, 'url' => $myurl), '', '&');
         $this->redirect($url);
     }
