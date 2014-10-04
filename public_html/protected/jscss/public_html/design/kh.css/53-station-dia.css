@@ -106,7 +106,8 @@ div.station-dia div.timetable a.type_130 {
 
 /* 急行 */
 div.station-dia div.timetable a.type_140,
-div.station-dia div.timetable a.type_150 {
+div.station-dia div.timetable a.type_150,
+div.station-dia div.timetable a.type_896 { /* おうじちゃま借用 */
     box-shadow: 0 1px 4px rgba(233, 85, 13, .6);
     color: rgb(233, 85, 13);
     border: 0 solid rgb(233, 85, 13);
@@ -115,7 +116,8 @@ div.station-dia div.timetable a.type_150 {
 }
 
 /* 深夜急行 */
-div.station-dia div.timetable a.type_150 {
+div.station-dia div.timetable a.type_150,
+div.station-dia div.timetable a.type_896 { /* おうじちゃま借用 */
     color: #ffffff;
     text-shadow: 0 1px 0 #000000;
     background: -webkit-linear-gradient(top, rgb(245, 89, 14), rgb(233, 85, 13));
@@ -142,7 +144,11 @@ div.station-dia div.timetable a.type_550 {
 }
 
 /* 特急 */
-div.station-dia div.timetable a.type_180 {
+div.station-dia div.timetable a.type_180,
+div.station-dia div.timetable a.type_880,
+div.station-dia div.timetable a.type_890,
+div.station-dia div.timetable a.type_891,
+div.station-dia div.timetable a.type_895 {
     box-shadow: 0 1px 4px rgba(191, 23, 54, .6);
     color: rgb(191, 23, 54);
     border: 0 solid rgb(191, 23, 54);
@@ -151,7 +157,8 @@ div.station-dia div.timetable a.type_180 {
 }
 
 /* 特急 */
-div.station-dia div.timetable a.type_180 {
+div.station-dia div.timetable a.type_180,
+div.station-dia div.timetable a.type_880 {
     color: #ffffff;
     text-shadow: 0 1px 0 #000000;
     background: -webkit-linear-gradient(top, rgb(204, 25, 58), rgb(191, 23, 54));
