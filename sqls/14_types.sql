@@ -16,6 +16,8 @@ INSERT INTO "types" VALUES ( 150, '深夜急行', '深夜急行', '深夜急行'
 INSERT INTO "types" VALUES ( 160, '快速急行', '快速急行', '快速急行', FALSE );
 INSERT INTO "types" VALUES ( 170, '通勤快急', '通勤快急', '通勤快急', FALSE );
 INSERT INTO "types" VALUES ( 180, '特急',     '特急',     '特急',     FALSE );
+-- INSERT INTO "types" VALUES ( 190, '快速特急', '快速特急', '快速特急', FALSE);
+INSERT INTO "types" VALUES ( 191, '快速特急', '快速特急「洛楽」', '洛楽', FALSE);
 
 INSERT INTO "types" VALUES ( 500, '区間急行', '区間急行(N)',          '区間急行(外側)', FALSE );
 
@@ -30,8 +32,6 @@ INSERT INTO "types" VALUES ( 870, '臨時通勤快急', '臨時通勤快急',   
 INSERT INTO "types" VALUES ( 880, '臨時特急',     '臨時特急',             '(臨)特急',     TRUE );
 INSERT INTO "types" VALUES ( 890, '臨時快速特急', '臨時快速特急',         '(臨)快速特急', TRUE );
 INSERT INTO "types" VALUES ( 891, '臨時K特急',    '臨時K特急',            '(臨)K特急',    TRUE );
-INSERT INTO "types" VALUES ( 895, '臨時快速特急', '臨時快速特急「洛楽」', '(臨)洛楽',     TRUE );
-INSERT INTO "types" VALUES ( 896, '臨時', '臨時「宇治・伏見 おうじちゃまEXPRESS」', '(臨)おうじちゃま', TRUE );
 
 INSERT INTO "types" VALUES ( 990, '団体',         '団体',                 '(臨)団体',     TRUE );
 INSERT INTO "types" VALUES ( 999, '回送',         '回送',                 '回送',         FALSE );
