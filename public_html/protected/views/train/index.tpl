@@ -67,8 +67,10 @@
                 </table>
             </form>
             <p>
-                お知らせ：(2015-03-24)<br>
-                春の特別ダイヤに対応しました。
+                お知らせ：(2015-04-13)<br>
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/17">鋼索線（男山ケーブル）のダイヤが重複している問題（春ダイヤ関連）</a>に対処しました。<br>
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/18">鋼索線（男山ケーブル）の車両の番号「1」「2」が受け付けられない問題</a>に対処しました。<br>
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/19">7201Fの編成が変更されている件</a>、その他現在の編成と異なる件に対処しました。
             </p>
         </div>
     </div>
