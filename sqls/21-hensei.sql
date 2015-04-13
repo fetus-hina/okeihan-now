@@ -2,6 +2,12 @@ BEGIN;
 DELETE FROM "cars";
 DELETE FROM "formations";
 
+INSERT INTO "formations" VALUES ( 1, 1, '1号', NULL );
+INSERT INTO "cars" VALUES ( 1, 1, 1 );
+
+INSERT INTO "formations" VALUES ( 2, 1, '2号', NULL );
+INSERT INTO "cars" VALUES ( 2, 2, 1 );
+
 INSERT INTO "formations" VALUES ( 1501, 1000, '1501F', NULL );
 INSERT INTO "cars" VALUES ( 1501, 1501, 1 );
 INSERT INTO "cars" VALUES ( 1101, 1501, 2 );
