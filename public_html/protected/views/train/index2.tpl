@@ -50,6 +50,12 @@
                 <a href="https://github.com/fetus-hina/okeihan-now/issues/18">鋼索線（男山ケーブル）の車両の番号「1」「2」が受け付けられない問題</a>に対処しました。<br>
                 <a href="https://github.com/fetus-hina/okeihan-now/issues/19">7201Fの編成が変更されている件</a>、その他現在の編成と異なる件に対処しました。
             </p>
+            <p>
+                バグ報告は <a href="https://github.com/fetus-hina/okeihan-now/issues">GitHub</a> か <a href="https://twitter.com/fetus_hina">@fetus_hina</a> まで。
+            </p>
+            <p>
+                <a href="http://ekimemo.com/">駅メモ</a>はじめました。招待コードは <code>bj1at7ty</code> です。
+            </p>
         </div>
     </div>
 {{/strip}}
