@@ -49,6 +49,7 @@ return array(
         'viewRenderer' => array(
             'class' => 'application.extensions.yiiext.renderers.smarty.ESmartyViewRenderer',
             'fileExtension' => '.tpl',
+            'smartyDir' => 'application.vendor.Smarty',
             'config' => array(
                 'left_delimiter'  => '{{',
                 'right_delimiter' => '}}',
