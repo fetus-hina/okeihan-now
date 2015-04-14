@@ -1,12 +1,12 @@
-/*
-* jQuery Mobile Git Build: SHA1: 3d48d6517f808550ee402a2859feedec13b0a3fe <> Date: Tue Feb 19 15:25:22 2013 -0800
-* http://jquerymobile.com
-*
-* Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
-* Released under the MIT license.
-* http://jquery.org/license
-*
-*/
+/** @preserve
+ * jQuery Mobile Git Build: SHA1: 3d48d6517f808550ee402a2859feedec13b0a3fe <> Date: Tue Feb 19 15:25:22 2013 -0800
+ * http://jquerymobile.com
+ *
+ * Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ */
 
 
 (function ( root, doc, factory ) {

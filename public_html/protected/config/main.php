@@ -43,12 +43,13 @@ return array(
         ),
         'db'=>array(
             'connectionString' => 'pgsql:host=localhost;port=5432;dbname=keihan',
-            'username' => 'fetus',
-            'password' => 'fetus',
+            'username' => 'alice',
+            'password' => 'karen',
         ),
         'viewRenderer' => array(
             'class' => 'application.extensions.yiiext.renderers.smarty.ESmartyViewRenderer',
             'fileExtension' => '.tpl',
+            'smartyDir' => 'application.vendor.Smarty',
             'config' => array(
                 'left_delimiter'  => '{{',
                 'right_delimiter' => '}}',

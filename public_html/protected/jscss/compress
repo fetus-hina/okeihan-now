@@ -99,18 +99,15 @@ function exec_file_real($rel_path, $in_file, $out_file1, $out_file2, $filetype, 
 
     if($filetype === 'js') {
         $cmdline = sprintf(
-            '/usr/bin/env %s %s %s > %s',
-            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/node.x64'),
-            escapeshellarg(dirname(__FILE__) . '/../vendors/UglifyJS/bin/uglifyjs'),
+            '/usr/bin/env %s --comments --compress --mangle --beautify beautify=false,ascii-only=true %s > %s',
+            escapeshellarg('uglifyjs'),
             escapeshellarg($in_file),
             escapeshellarg($out_file1)
         );
     } else {
         $cmdline = sprintf(
-            '/usr/bin/env NODE_PATH=%s %s %s -e -o %s %s',
-            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/lib'),
-            escapeshellarg(dirname(__FILE__) . '/../vendors/node.js/node.x64'),
-            escapeshellarg(dirname(__FILE__) . '/../vendors/clean-css/bin/cleancss'),
+            '/usr/bin/env %s -o %s %s',
+            escapeshellarg('cleancss'),
             escapeshellarg($out_file1),
             escapeshellarg($in_file)
         );
@@ -121,14 +118,13 @@ function exec_file_real($rel_path, $in_file, $out_file1, $out_file2, $filetype, 
         return false;
     }
 
-    //FIXME
     $cmdline = sprintf(
-        '/usr/bin/env %s -i%d -c --gzip %s > %s',
-        escapeshellarg(dirname(__FILE__) . '/../vendors/Zopfli/zopfli.x64'),
-        100,
+        '/usr/bin/env %s -c9 %s > %s',
+        escapeshellarg('gzip'),
         escapeshellarg($out_file1),
         escapeshellarg($out_file2)
     );
+
     exec($cmdline, $lines, $status);
     if($status != 0) {
         echo "Cannot gzip file\n";
