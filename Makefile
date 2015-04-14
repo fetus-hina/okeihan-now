@@ -7,6 +7,6 @@ docker-release: app.tar.gz
 app.tar.gz: FORCE
 	tar zcvf app.tar.gz \
 		--exclude=public_html/protected/runtime \
-		composer.json composer.lock LICENSE README yii public_html sqls
+		composer.json composer.lock LICENSE README.md yii public_html sqls
 
 FORCE:
