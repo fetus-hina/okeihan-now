@@ -67,6 +67,11 @@
                 </table>
             </form>
             <p>
+                お知らせ：(2015-04-15)<br>
+                システムの構成を大きく変更したため、何か起きているかもしれません。<br>
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/21">↑に伴って、ダイヤ検索の一部機能が動作していませんでした</a>。
+            </p>
+            <p>
                 お知らせ：(2015-04-13)<br>
                 <a href="https://github.com/fetus-hina/okeihan-now/issues/17">鋼索線（男山ケーブル）のダイヤが重複している問題（春ダイヤ関連）</a>に対処しました。<br>
                 <a href="https://github.com/fetus-hina/okeihan-now/issues/18">鋼索線（男山ケーブル）の車両の番号「1」「2」が受け付けられない問題</a>に対処しました。<br>

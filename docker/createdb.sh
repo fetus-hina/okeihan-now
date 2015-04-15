@@ -12,6 +12,7 @@ sleep 3
 echo "ALTER USER \"alice\" WITH ENCRYPTED PASSWORD 'karen';" | /usr/pgsql-9.4/bin/psql
 
 /usr/pgsql-9.4/bin/createdb --owner=alice --template=template0 keihan
+echo "ALTER DATABASE \"keihan\" SET timezone TO 'Asia/Tokyo';" | /usr/pgsql-9.4/bin/psql
 
 PGPASSWORD=karen
 for i in 10_lines.sql 11_stations.sql 12_stations_location.sql 13_lines_stations.sql 14_types.sql \

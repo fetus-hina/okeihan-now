@@ -47,6 +47,10 @@ RUN yum -y install \
     yum clean all && \
     systemctl enable yum-cron
 
+# Update timezone
+RUN rm -f /etc/localtime; \
+    ln -s ../usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 # Setup application
 RUN mkdir -p /var/www/sites; \
     useradd -d /var/www/sites/kh.fetus.jp alice; \
