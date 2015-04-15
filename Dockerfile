@@ -39,13 +39,14 @@ RUN echo "[nginx]" > /etc/yum.repos.d/nginx.repo; \
 
 # Install packages from additional repository
 RUN yum -y install \
-      yum-cron \
+      yum-cron cronie \
       nginx \
       hhvm hhvm-ext-pgsql \
       postgresql94 postgresql94-contrib postgresql94-libs postgresql94-server \
       uglify-js js-uglify nodejs-clean-css && \
     yum clean all && \
-    systemctl enable yum-cron
+    systemctl enable yum-cron && \
+    systemctl enable crond
 
 # Update timezone
 RUN rm -f /etc/localtime; \
@@ -82,5 +83,6 @@ RUN systemctl enable nginx.service
 
 # Setup HHVM
 RUN echo "hhvm.dynamic_extensions[pgsql] = pgsql.so" >> /etc/hhvm/php.ini; \
+    sed -i 's%--user hhvm%--user alice%' /usr/lib/systemd/system/hhvm.service; \
+    sed -i 's%enabled=1%enabled=0%' /etc/yum.repos.d/no1youknowz-hhvm-repo-epel-7.repo; \
     systemctl enable hhvm.service
-
