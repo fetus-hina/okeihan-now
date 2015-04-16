@@ -69,7 +69,8 @@
             <p>
                 お知らせ：(2015-04-15)<br>
                 システムの構成を大きく変更したため、何か起きているかもしれません。<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/21">↑に伴って、ダイヤ検索の一部機能が動作していませんでした</a>。
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/21">↑に伴って、ダイヤ検索の一部機能が動作していませんでした</a>。<br>
+                <a href="https://github.com/fetus-hina/okeihan-now/issues/22">↑に伴って、リンクのURLが壊れていました</a>。(2014-04-17)
             </p>
             <p>
                 お知らせ：(2015-04-13)<br>
