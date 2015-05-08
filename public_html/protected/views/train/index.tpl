@@ -67,22 +67,14 @@
                 </table>
             </form>
             <p>
-                お知らせ：(2015-04-15)<br>
-                システムの構成を大きく変更したため、何か起きているかもしれません。<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/21">↑に伴って、ダイヤ検索の一部機能が動作していませんでした</a>。<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/22">↑に伴って、リンクのURLが壊れていました</a>。(2014-04-17)
-            </p>
-            <p>
-                お知らせ：(2015-04-13)<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/17">鋼索線（男山ケーブル）のダイヤが重複している問題（春ダイヤ関連）</a>に対処しました。<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/18">鋼索線（男山ケーブル）の車両の番号「1」「2」が受け付けられない問題</a>に対処しました。<br>
-                <a href="https://github.com/fetus-hina/okeihan-now/issues/19">7201Fの編成が変更されている件</a>、その他現在の編成と異なる件に対処しました。
+                お知らせ：(2015-05-08)<br>
+                春の特別ダイヤ対応が終了しました。
             </p>
             <p>
                 バグ報告は <a href="https://github.com/fetus-hina/okeihan-now/issues">GitHub</a> か <a href="https://twitter.com/fetus_hina">@fetus_hina</a> まで。
             </p>
             <p>
-                <a href="http://ekimemo.com/">駅メモ</a>はじめました。招待コードは <code>bj1at7ty</code> です。
+                <a href="http://ekimemo.com/">駅メモ</a>はじめました。招待コードは <code>bj1at7ty</code> です。フレンド申請は「ひな」で検索して、萱島好きとか言ってるのを見つけてください。
             </p>
         </div>
     </div>

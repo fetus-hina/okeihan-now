@@ -17,7 +17,6 @@ echo "ALTER DATABASE \"keihan\" SET timezone TO 'Asia/Tokyo';" | /usr/pgsql-9.4/
 PGPASSWORD=karen
 for i in 10_lines.sql 11_stations.sql 12_stations_location.sql 13_lines_stations.sql 14_types.sql \
          15_dia_tables.sql 16_series.sql 17_trains_tables.sql 18_holidays.sql 20_dias.sql \
-         20_dias_2015spring.sql \
          21-hensei.sql 22-hensei-name.sql 30_functions.sql 40_vacuum.sql
 do
     echo "Importing $i"
