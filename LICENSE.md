@@ -1,3 +1,9 @@
+LICENSE
+=======
+
+This software ("okeihan-now") is license under the MIT License.
+
+```
 The MIT License (MIT)
 
 Copyright (c) 2012-2015 AIZAWA Hina <hina@bouhime.com>
@@ -19,3 +25,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
+
+----
+
+Okeihan-now uses the [Yii Framework](http://www.yiiframework.com/) 2 and its template.
+It is licensed under [the 3-clause BSD License](https://github.com/yiisoft/yii2/blob/master/LICENSE.md).
+
+----
+
+Okeihan-now uses the icon which created by [Train Front View - 駅旅・ゆけむり研究室](http://www.trainfrontview.net/).
+The icon is licensed under its own license. Please visit the website and check the license.
+You may need a notification to Curoka(owner of TFV website) when you create clone website of okeihan-now.
+
+This repository has not include the icon.
+The icon will create when you execute `$ make`.
