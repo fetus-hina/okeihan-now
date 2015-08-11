@@ -67,8 +67,8 @@
                 </table>
             </form>
             <p>
-                お知らせ：(2015-05-08)<br>
-                春の特別ダイヤ対応が終了しました。
+                お知らせ：(2015-08-11)<br>
+                お盆ダイヤ ready.
             </p>
             <p>
                 バグ報告は <a href="https://github.com/fetus-hina/okeihan-now/issues">GitHub</a> か <a href="https://twitter.com/fetus_hina">@fetus_hina</a> まで。

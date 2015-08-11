@@ -51,6 +51,10 @@ INSERT INTO "holidays" VALUES ( '2015-05-04' );
 INSERT INTO "holidays" VALUES ( '2015-05-05' );
 INSERT INTO "holidays" VALUES ( '2015-05-06' );
 INSERT INTO "holidays" VALUES ( '2015-07-20' );
+
+INSERT INTO "holidays" VALUES ( '2015-08-13' ); 
+INSERT INTO "holidays" VALUES ( '2015-08-14' );
+
 INSERT INTO "holidays" VALUES ( '2015-09-21' );
 INSERT INTO "holidays" VALUES ( '2015-09-22' );
 INSERT INTO "holidays" VALUES ( '2015-09-23' );
