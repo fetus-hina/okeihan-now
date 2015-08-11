@@ -18,17 +18,11 @@ RUN yum swap -y \
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
 
-# EPEL-repo and PostgreSQL-repo Setup
-RUN curl -o /tmp/epel-release.rpm \
-      http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm; \
-    curl -o /tmp/pgsql94-release.rpm \
-      http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm; \
-    yum localinstall -y /tmp/epel-release.rpm /tmp/pgsql94-release.rpm; \
-    rm -f /tmp/*.rpm
-
-# HHVM-repo Setup
-RUN curl -o /etc/yum.repos.d/no1youknowz-hhvm-repo-epel-7.repo \
-      https://copr.fedoraproject.org/coprs/no1youknowz/hhvm-repo/repo/epel-7/no1youknowz-hhvm-repo-epel-7.repo
+# Setup repositories
+RUN yum install -y \
+      http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm \
+      http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm \
+      https://www.softwarecollections.org/en/scls/rhscl/rh-php56/epel-7-x86_64/download/rhscl-rh-php56-epel-7-x86_64.noarch.rpm
 
 # NGINX-repo Setup
 RUN echo "[nginx]" > /etc/yum.repos.d/nginx.repo; \
@@ -41,12 +35,17 @@ RUN echo "[nginx]" > /etc/yum.repos.d/nginx.repo; \
 RUN yum -y install \
       yum-cron cronie \
       nginx \
-      hhvm hhvm-ext-pgsql \
       postgresql94 postgresql94-contrib postgresql94-libs postgresql94-server \
       uglify-js js-uglify nodejs-clean-css && \
     yum clean all && \
     systemctl enable yum-cron && \
     systemctl enable crond
+
+# Install SCL packages
+RUN yum -y install \
+      scl-utils rh-php56-php-cli rh-php56-php-common rh-php56-php-fpm rh-php56-php-gd rh-php56-php-gmp rh-php56-php-intl \
+      rh-php56-php-mbstring rh-php56-php-opcache rh-php56-php-pdo rh-php56-php-pecl-jsonc rh-php56-php-process rh-php56-php-xml \
+      rh-php56-php-xmlrpc rh-php56-runtime rh-php56-php-pgsql
 
 # Update timezone
 RUN rm -f /etc/localtime; \
@@ -63,8 +62,8 @@ WORKDIR /var/www/sites/kh.fetus.jp
 RUN chown -R alice:alice .; \
     mkdir -p public_html/protected/runtime; \
     chmod 777 public_html/protected/runtime; \
-    curl -sS "https://getcomposer.org/installer" | hhvm --php; \
-    hhvm --php composer.phar install
+    scl enable rh-php56 'curl -sS "https://getcomposer.org/installer" | php'; \
+    scl enable rh-php56 'php composer.phar install'
 USER root
 WORKDIR /
 
@@ -81,8 +80,6 @@ RUN rm -rf /tmp/sqls /tmp/createdb.sh
 ADD docker/nginx.conf /etc/nginx/nginx.conf
 RUN systemctl enable nginx.service
 
-# Setup HHVM
-RUN echo "hhvm.dynamic_extensions[pgsql] = pgsql.so" >> /etc/hhvm/php.ini; \
-    sed -i 's%--user hhvm%--user alice%' /usr/lib/systemd/system/hhvm.service; \
-    sed -i 's%enabled=1%enabled=0%' /etc/yum.repos.d/no1youknowz-hhvm-repo-epel-7.repo; \
-    systemctl enable hhvm.service
+# Setup PHP-FPM
+ADD docker/phpfpm-www.conf /etc/opt/rh/rh-php56/php-fpm.d/www.conf
+RUN systemctl enable rh-php56-php-fpm.service
