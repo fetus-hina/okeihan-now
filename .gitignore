@@ -1,3 +1,4 @@
+/vendor
 app.tar.gz
 composer.phar
-/vendor
+public_html/favicon.ico
