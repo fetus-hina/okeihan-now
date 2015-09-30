@@ -11,7 +11,7 @@
         "php": "5.*",
         "yiiext/smarty-renderer": "~1.0",
         "yiisoft/yii": "~1.1",
-        "smarty/smarty": "~3.1"
+        "smarty/smarty": "3.1.21"
     },
     "repositories": [
         {
