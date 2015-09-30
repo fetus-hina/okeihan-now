@@ -45,14 +45,14 @@
                 </table>
             </form>
             <p>
-                お知らせ：(2015-08-11)<br>
-                お盆ダイヤ ready.
+                お知らせ：(2015-09-30)<br>
+                秋の特別ダイヤにようやく対応
             </p>
             <p>
                 バグ報告は <a href="https://github.com/fetus-hina/okeihan-now/issues">GitHub</a> か <a href="https://twitter.com/fetus_hina">@fetus_hina</a> まで。
             </p>
             <p>
-                <a href="http://ekimemo.com/">駅メモ</a>はじめました。招待コードは <code>bj1at7ty</code> です。フレンド申請は「ひな」で検索して、萱島好きとか言ってるのを見つけてください。
+                <a href="http://ekimemo.com/">駅メモ</a>はじめました。フレンド申請は「ひな」で検索して、萱島好きとか言ってるのを見つけてください。
             </p>
         </div>
     </div>
