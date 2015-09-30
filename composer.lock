@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "c18ec75705ad4b8c76e87c828855a594",
+    "content-hash": "c3b3d72fb58dca0e28917753d5029160",
     "packages": [
         {
             "name": "smarty/smarty",
